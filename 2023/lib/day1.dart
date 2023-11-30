@@ -1,5 +1,4 @@
 import 'package:aoc2023/advent_day.dart';
-import 'package:collection/collection.dart';
 
 main() => Day1().solve();
 

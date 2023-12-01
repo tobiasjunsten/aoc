@@ -3,8 +3,8 @@ import 'dart:io';
 abstract class AdventDay {
   final int day;
   AdventDay(this.day);
-  String part1(String input);
-  String part2(String input);
+  dynamic part1(String input);
+  dynamic part2(String input);
   void solve() {
     final i = input();
     print('Part 1: ${part1(i)}');

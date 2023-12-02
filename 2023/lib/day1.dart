@@ -25,87 +25,57 @@ class Day1 extends AdventDay {
   }
 
   String convertTextNumbersToDigits(String input) {
-    final one = input.indexOf("one");
-    final indOne = IndexNum(index: one, num: "one", number: 1);
-    final two = input.indexOf("two");
-    final indTwo = IndexNum(index: two, num: "two", number: 2);
-    final three = input.indexOf("three");
-    final indThree = IndexNum(index: three, num: "three", number: 3);
-    final four = input.indexOf("four");
-    final indFour = IndexNum(index: four, num: "four", number: 4);
-    final five = input.indexOf("five");
-    final indFive = IndexNum(index: five, num: "five", number: 5);
-    final six = input.indexOf("six");
-    final indSix = IndexNum(index: six, num: "six", number: 6);
-    final seven = input.indexOf("seven");
-    final indSeven = IndexNum(index: seven, num: "seven", number: 7);
-    final eight = input.indexOf("eight");
-    final indEight = IndexNum(index: eight, num: "eight", number: 8);
-    final nine = input.indexOf("nine");
-    final indNine = IndexNum(index: nine, num: "nine", number: 9);
+    final one = getIndexNum("one", 1, input);
+    final two = getIndexNum("two", 2, input);
+    final three = getIndexNum("three", 3, input);
+    final four = getIndexNum("four", 4, input);
+    final five = getIndexNum("five", 5, input);
+    final six = getIndexNum("six", 6, input);
+    final seven = getIndexNum("seven", 7, input);
+    final eight = getIndexNum("eight", 8, input);
+    final nine = getIndexNum("nine", 9, input);
+
     List<IndexNum> all = [
-      indOne,
-      indTwo,
-      indThree,
-      indFour,
-      indFive,
-      indSix,
-      indSeven,
-      indEight,
-      indNine
+      one,
+      two,
+      three,
+      four,
+      five,
+      six,
+      seven,
+      eight,
+      nine
     ];
-    final found = all.where((element) => element.index >= 0).toList();
-    found.sort((a, b) => a.index.compareTo(b.index));
-    if (found.length > 0) {
+    final foundFirst = all.where((element) => element.firstIndex >= 0).toList();
+    foundFirst.sort((a, b) => a.firstIndex.compareTo(b.firstIndex));
+    if (foundFirst.length > 0) {
       input = input
-          .replaceRange(found.first.index, found.first.index,
-              found.first.number.toString());
+          .replaceRange(foundFirst.first.firstIndex, foundFirst.first.firstIndex,
+              foundFirst.first.number.toString());
     }
 
-    final onex = input.lastIndexOf("one");
-    final indOnex = IndexNum(index: onex, num: "one", number: 1);
-    final twox = input.lastIndexOf("two");
-    final indTwox = IndexNum(index: twox, num: "two", number: 2);
-    final threex = input.lastIndexOf("three");
-    final indThreex = IndexNum(index: threex, num: "three", number: 3);
-    final fourx = input.lastIndexOf("four");
-    final indFourx = IndexNum(index: fourx, num: "four", number: 4);
-    final fivex = input.lastIndexOf("five");
-    final indFivex = IndexNum(index: fivex, num: "five", number: 5);
-    final sixx = input.lastIndexOf("six");
-    final indSixx = IndexNum(index: sixx, num: "six", number: 6);
-    final sevenx = input.lastIndexOf("seven");
-    final indSevenx = IndexNum(index: sevenx, num: "seven", number: 7);
-    final eightx = input.lastIndexOf("eight");
-    final indEightx = IndexNum(index: eightx, num: "eight", number: 8);
-    final ninex = input.lastIndexOf("nine");
-    final indNinex = IndexNum(index: ninex, num: "nine", number: 9);
-    List<IndexNum> allx = [
-      indOnex,
-      indTwox,
-      indThreex,
-      indFourx,
-      indFivex,
-      indSixx,
-      indSevenx,
-      indEightx,
-      indNinex
-    ];
-    final foundx = allx.where((element) => element.index >= 0).toList();
-    foundx.sort((a, b) => b.index.compareTo(a.index));
-    if (foundx.length > 0) {
+    final foundLast = all.where((element) => element.lastIndex >= 0).toList();
+    foundLast.sort((a, b) => a.lastIndex.compareTo(b.lastIndex));
+    if (foundLast.length > 0) {
       input = input
-          .replaceRange(foundx.first.index, foundx.first.index,
-              foundx.first.number.toString());
+          .replaceRange(foundLast.first.lastIndex, foundLast.first.lastIndex,
+              foundLast.first.number.toString());
     }
     return input;
+  }
+
+  IndexNum getIndexNum(String text, int digit, String input) {
+    final firstIndex = input.indexOf(text);
+    final lastIndex = input.lastIndexOf(text);
+    return IndexNum(firstIndex: firstIndex, num: text, number: digit, lastIndex: lastIndex);
   }
 }
 
 class IndexNum {
-  final int index;
+  final int firstIndex;
   final String num;
   final int number;
+  final int lastIndex;
 
-  IndexNum({required this.index, required this.num, required this.number});
+  IndexNum({required this.firstIndex, required this.num, required this.number, required this.lastIndex});
 }

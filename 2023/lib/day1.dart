@@ -43,10 +43,10 @@ class Day1 extends AdventDay {
     }
 
     final foundLast = all.where((element) => element.lastIndex >= 0).toList();
-    foundLast.sort((a, b) => a.lastIndex.compareTo(b.lastIndex));
+    foundLast.sort((a, b) => b.lastIndex.compareTo(a.lastIndex));
     if (foundLast.length > 0) {
-      input = input.replaceRange(foundLast.first.lastIndex,
-          foundLast.first.lastIndex, foundLast.first.number.toString());
+      input = input.replaceRange(foundLast.first.lastIndex + 1,
+          foundLast.first.lastIndex + 1, foundLast.first.number.toString());
     }
     return input;
   }

@@ -6,7 +6,7 @@ import 'package:test/test.dart';
 main() {
   final input = File('input/day8_test.txt').readAsStringSync().trimRight();
   test('Day8 part1', () {
-    expect(Day8().part1(input), 6440);
+    expect(Day8().part1(input), 6);
   });
 
   test('Day8 part2', () {

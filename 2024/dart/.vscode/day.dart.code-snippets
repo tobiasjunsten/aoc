@@ -1,0 +1,27 @@
+{
+	"DayX Dart Template": {
+	  "prefix": "dayx",
+	  "body": [
+		"import 'package:aoc2024/util.dart';",
+		"",
+		"import 'advent_day.dart';",
+		"",
+		"main() => Day${1:X}().solve();",
+		"",
+		"class Day${1:X} extends AdventDay {",
+		"  Day${1:X}() : super(${1:X});",
+		"",
+		"  @override",
+		"  part1(String input) {",
+		"    return 0;",
+		"  }",
+		"",
+		"  @override",
+		"  part2(String input) {",
+		"    return 0;",
+		"  }",
+		"}"
+	  ],
+	  "description": "Template for DayX Dart file"
+	}
+  }

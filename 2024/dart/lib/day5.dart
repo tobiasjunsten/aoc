@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:aoc2024/util.dart';
 
 import 'advent_day.dart';
